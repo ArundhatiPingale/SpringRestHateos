@@ -33,7 +33,7 @@ public class UserDaoService {
 	
 		
 		Predicate<? super User> predicate = users -> users.getId().equals(id);
-		return users.stream().filter(predicate).findFirst().get();
+		return users.stream().filter(predicate).findFirst().orElse(null);
 				
 	}
 
