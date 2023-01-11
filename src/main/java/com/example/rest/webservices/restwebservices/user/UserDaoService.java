@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -44,6 +45,16 @@ public class UserDaoService {
 		
 		return user;
 		
+	}
+	
+	public void delete(int id) 
+	{	
+		Predicate<? super User> predicate = users -> users.getId().equals(id);
+		
+		users.removeIf(predicate);
+		 //users.stream().filter(predicate).collect(Collectors.toList()).remove(id);
+	
+			
 	}
 	
 	
